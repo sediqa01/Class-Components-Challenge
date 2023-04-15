@@ -13,7 +13,11 @@ class NavBarSimple extends React.Component {
 
     render(){
         return (
-            <p>HTML Component Here</p>
+            <div>
+                <h1>My Gallery</h1>
+                <span>Hello, Guest! </span>
+                <button>Login</button>
+            </div>
         );
 
     }
