@@ -1,25 +1,35 @@
 import React from "react";
+import css from "./css/NavBarSimple.module.css";
+
 
 class NavBarSimple extends React.Component {
 
     constructor(props){
         super(props);
         this.state = {
-
-        };
+            message: "Hello, Guest!",
+            buttonText: "Login",
+        }
     }
 
+    handleclick = () => {
+        this.setState((prevState) => ({
+            message: prevState.message === "Hello, guest!" ? "Welcome back, user!" : "Hello, guest!",
+            buttonText: prevState.buttonText === "Login" ? "Logout" : "Login",
+        }), ()=> console.log(this.state.message))
+        
+    }
 
-
-    render(){
+    render() {
         return (
-            <div>
+            <div className={css.NavBar}>
                 <h1>My Gallery</h1>
-                <span>Hello, Guest! </span>
-                <button>Login</button>
+                <div>
+                    <span>{this.state.message}</span>
+                    <button onClick={() => this.handleclick()}>{this.state.buttonText}</button>
+                </div>
             </div>
-        );
-
+        )
     }
     
 }
